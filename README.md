@@ -14,11 +14,7 @@
 <b>Christoba Joshua Hutagalung</b>
 
 
-
-
 <b>2311102133</b>
-
-
 
 
 <b>S1 Teknik Informatika 2023</b>
@@ -32,18 +28,13 @@
 
 
 
-
-
 <h2 align="center">LABORATORIUM HIGH PERFORMANCE
-
 
 
 FAKULTAS INFORMATIKA
 
 
-
 UNIVERSITAS TELKOM PURWOKERTO
-
 
 
 TAHUN 2026</h2>
@@ -51,24 +42,25 @@ TAHUN 2026</h2>
 <hr>
 
 1. Dasar Teori
+HTML (HyperText Markup Language): Bahasa standar untuk membuat struktur dasar halaman web.
 
-HTML (HyperText Markup Language): Bahasa markup standar yang digunakan untuk membuat struktur dasar halaman web.
+Bootstrap 5: Framework CSS yang digunakan untuk membangun antarmuka web yang responsif melalui kelas-utilitas dan komponen siap pakai.
 
-Bootstrap 5: Framework CSS yang digunakan untuk membangun antarmuka web yang responsif dan modern secara cepat melalui kelas-utilitas dan komponen siap pakai.
+Pure Node.js: Lingkungan runtime JavaScript di sisi server yang dijalankan tanpa framework tambahan (seperti Express) untuk menangani routing dan manipulasi data secara manual.
 
-Pure Node.js: Lingkungan runtime JavaScript di sisi server yang dijalankan tanpa framework tambahan. Pengolahan server, routing, dan manipulasi data dilakukan secara manual menggunakan modul bawaan http.
-
-jQuery & DataTables: Library JavaScript yang menyederhanakan manipulasi DOM. Plugin DataTables digunakan untuk mengelola data dalam tabel secara otomatis.
+jQuery & DataTables: Library JavaScript untuk manipulasi DOM dan plugin untuk mengelola data dalam tabel secara otomatis, termasuk fitur pencarian dan paginasi.
 
 JSON (JavaScript Object Notation): Format pertukaran data yang ringan digunakan untuk mengirimkan data mahasiswa dari server ke client.
 
 2. Struktur Direktori
+Aplikasi ini menggunakan struktur minimalis tanpa memerlukan folder node_modules.
 
+Plaintext
 2311102133_CRUD-MAHASISWA/
 │
 ├── assets/                # Folder penyimpanan gambar laporan
 │   ├── LogoTelkom.png
-│   ├── home.jpeg          # Screenshot Halaman Utama
+│   ├── index.jpeg         # Screenshot Halaman Utama
 │   ├── tambahdata.jpeg    # Screenshot Form Tambah
 │   ├── editdata.jpeg      # Screenshot Form Edit
 │   └── hapusdata.jpeg     # Screenshot Konfirmasi Hapus
@@ -81,52 +73,36 @@ JSON (JavaScript Object Notation): Format pertukaran data yang ringan digunakan 
 ├── server.js              # Server Backend (Logic & Routing)
 ├── package.json           # Konfigurasi project
 └── README.md              # Dokumentasi lengkap
-
-
 3. Struktur Halaman
+Berikut adalah tampilan fungsionalitas dari aplikasi CRUD Mahasiswa:
 
 Halaman Utama (Tampil Data)
-
-Menampilkan daftar mahasiswa secara dinamis menggunakan DataTables dari sumber data JSON.
-
+Menampilkan daftar mahasiswa secara dinamis menggunakan jQuery DataTables dari sumber data JSON.
 
 
+<img src="2311102133_CRUD-MAHASISWA/assets/index.jpeg" width="800">
 
-
-<img src="2311102133_CRUD-MAHASISWA/assets/home.jpeg" width="800">
-
-Terdapat fitur konfirmasi hapus data untuk mencegah kesalahan penghapusan.
-
-
-
+Fitur Hapus Data
+Terdapat notifikasi konfirmasi sebelum data benar-benar dihapus dari memori server.
 
 
 <img src="2311102133_CRUD-MAHASISWA/assets/hapusdata.jpeg" width="800">
 
 Halaman Tambah Data
-
-Formulir untuk memasukkan NIM, Nama Lengkap, dan Gender mahasiswa baru.
-
-
-
+Formulir input untuk menambahkan NIM, Nama, dan Gender mahasiswa baru.
 
 
 <img src="2311102133_CRUD-MAHASISWA/assets/tambahdata.jpeg" width="800">
 
 Halaman Edit Data
-
-Formulir untuk memperbarui data mahasiswa yang sudah ada di database sementara.
-
-
-
+Formulir untuk memperbarui informasi mahasiswa berdasarkan ID yang dipilih.
 
 
 <img src="2311102133_CRUD-MAHASISWA/assets/editdata.jpeg" width="800">
 
 4. Kode Program
-
 A. server.js (Backend)
-
+JavaScript
 const http = require('http');
 const fs = require('fs');
 const url = require('url');
@@ -207,12 +183,10 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(3000, () => console.log('Server berjalan di http://localhost:3000'));
-
-
 5. Kesimpulan
-
-Aplikasi CRUD ini berhasil dibangun menggunakan arsitektur Node.js murni, menunjukkan pemahaman mendalam tentang manajemen request/response secara manual tanpa framework Express. Integrasi Bootstrap dan jQuery DataTables memberikan pengalaman pengguna yang baik dan profesional dalam pengelolaan data mahasiswa.
+Aplikasi CRUD ini berhasil dibangun menggunakan arsitektur Node.js murni, menunjukkan pemahaman mendalam tentang manajemen request/response secara manual tanpa bantuan framework eksternal.
 
 6. Link Lampiran
+Video Presentasi: [Masukkan Link GDrive Video Di Sini]
 
-Video Presentasi: https://drive.google.com/drive/folders/1t4o5d0Yb6jzZZ7FV-OmwJccXR4d-BwnK?usp=sharing
+Slide PPT: [Masukkan Link GDrive PPT Di Sini]

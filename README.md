@@ -1,58 +1,56 @@
 <h1 align="center">LAPORAN PRAKTIKUM</h1>
 <h1 align="center">APLIKASI BERBASIS PLATFORM</h1>
 
+<br>
+
 <h2 align="center">TUGAS COTS MONEV 1</h2>
 <h2 align="center">CRUD DATA MAHASISWA</h2>
 
-
+<br>
 
 <p align="center">
-<img src="assets/LogoTelkom.png" width="350">
+  <img src="2311102133_CRUD-MAHASISWA/assets/LogoTelkom.png" width="350" alt="Logo Telkom University">
 </p>
 
-
-
+<br>
 
 <h2 align="center">Disusun Oleh :</h2>
 
-<p align="center" style="font-size:28px;">
-<b>Christoba Joshua Hutagalung</b>
-
-
-<b>2311102133</b>
-
-
-<b>S1 Teknik Informatika 2023</b>
+<p align="center" style="font-size:24px;">
+  <b>Christoba Joshua Hutagalung</b><br>
+  <b>2311102133</b><br>
+  <b>S1 Teknik Informatika 2023</b>
 </p>
 
+<br>
 
 <h2 align="center">Dosen Pengampu :</h2>
 
-<p align="center" style="font-size:28px;">
-<b>Cahyo Prihantoro, S.Kom., M.Eng </b>
+<p align="center" style="font-size:24px;">
+  <b>Cahyo Prihantoro, S.Kom., M.Eng</b>
 </p>
 
+<br><br>
+
+<h2 align="center">LABORATORIUM HIGH PERFORMANCE<br>FAKULTAS INFORMATIKA<br>UNIVERSITAS TELKOM PURWOKERTO<br>TAHUN 2026</h2>
 
 <hr>
 
-1. Dasar Teori
-HTML atau HyperText Markup Language merupakan bahasa dasar yang digunakan untuk membangun sebuah web dimana HTML menangani elemen-elemen dasar pada pembangunan sebuah website.
+## 1. Dasar Teori
 
+* **HTML (HyperText Markup Language):** Merupakan bahasa dasar yang digunakan untuk membangun sebuah web dimana HTML menangani elemen-elemen dasar pada struktur sebuah website.
+* **CSS & Bootstrap:** Merupakan framework yang membantu memperindah tampilan dari laman web. Aplikasi ini menggunakan Bootstrap 5 melalui CDN untuk mempercepat pengembangan antarmuka web, mencakup pembuatan tabel yang responsif, tombol, dan form input.
+* **Pure Node.js:** Aplikasi ini dibangun menggunakan Node.js murni tanpa framework tambahan (seperti Express.js). Proses routing (pengaturan URL) dan penyajian data JSON ditangani langsung menggunakan modul bawaan `http` dan `fs`.
+* **JQuery & DataTables:** jQuery adalah library Javascript yang mempermudah manipulasi DOM. Dalam tugas ini, jQuery digunakan bersama plugin **DataTables** untuk menampilkan, memfilter, mencari, dan memanipulasi data mahasiswa dalam bentuk tabel secara dinamis yang bersumber dari API JSON lokal.
+* **JSON (JavaScript Object Notation):** Merupakan format pertukaran data yang ringan dan mudah dibaca. JSON digunakan sebagai format representasi data yang dikirim dari server (backend) ke client (frontend) untuk dirender ke dalam tabel secara dinamis.
 
-CSS & Bootstrap merupakan framework yang membantu memperindah tampilan dari laman web yang telah dibangun dengan HTML. Aplikasi ini menggunakan Bootstrap 5 melalui CDN untuk mempercepat pengembangan antarmuka web, mencakup pembuatan tabel, tombol, dan form input.
+<br>
 
+## 2. Struktur Direktori
 
-Pure Node.js Aplikasi ini dibangun menggunakan Node.js murni tanpa framework tambahan. Node JS merupakan runtime environment yang memungkinkan JavaScript dijalankan di sisi server. Pada aplikasi ini, NodeJS menangani routing dan proses CRUD langsung menggunakan modul bawaan http dan fs.
+Karena menggunakan pendekatan **Pure Node.js**, aplikasi ini sangat ringan dan efisien karena tidak memerlukan instalasi *dependency* eksternal ataupun folder `node_modules`.
 
-
-JAVASCRIPT & JQUERY Javascript, seperti namanya, merupakan bahasa pemrograman scripting. jQuery adalah sebuah library Javascript yang dibuat oleh John Resig pada tahun 2006. Dalam tugas ini, jQuery digunakan bersama plugin DataTables untuk menampilkan, memfilter, dan memanipulasi data mahasiswa dalam bentuk tabel secara dinamis yang bersumber dari API JSON lokal.
-
-
-JSON (JavaScript Object Notation) merupakan format pertukaran data yang ringan dan mudah dibaca oleh manusia maupun mesin. JSON digunakan sebagai format data yang dikirim dari server ke client untuk dirender ke dalam tabel.
-
-
-2. Struktur Folder
-Plaintext
+```text
 2311102133_CRUD-MAHASISWA/
 │
 ├── assets/                # Folder untuk menyimpan screenshot laporan

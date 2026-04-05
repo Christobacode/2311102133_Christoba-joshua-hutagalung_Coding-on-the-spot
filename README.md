@@ -295,8 +295,8 @@ Komponen utama pada halaman ini adalah elemen <form> yang dikonfigurasi mengguna
 </html>
 ```
 **penjelasan `/2311102133_CRUD-MAHASISWA/views/edit.html`**
-Program di atas merupakan halaman yang digunakan untuk mengubah data kontak yang sudah ada (Update). Saat halaman dibuka, aplikasi akan mengambil data kontak berdasarkan ID melalui endpoint GET /kontak/:id dan menampilkannya pada form input.
-Pengguna dapat mengubah data yang ada dengan validasi yang sama seperti pada halaman tambah. Setelah form disubmit, data akan dikirim ke server menggunakan Fetch API dengan metode PUT dalam format JSON. Proses ini dilakukan secara asynchronous tanpa reload halaman. Setelah data berhasil diperbarui, sistem akan menampilkan notifikasi dan mengarahkan pengguna kembali ke halaman utama.
+File edit.html adalah halaman antarmuka yang dirancang khusus untuk memperbarui atau mengedit data mahasiswa yang sudah ada di dalam sistem. Sama seperti halaman tambah, saya merapikan tampilannya menggunakan komponen Card dari Bootstrap 5 agar terlihat profesional dan terpusat.<br>
+Hal yang paling unik dari halaman ini adalah penggunaan sistem penanda atau placeholder seperti {{id}}, {{nim}}, {{nama}}, hingga opsi {{sel_l}} pada setiap kolom input. Karena aplikasi ini murni menggunakan Node.js tanpa bantuan template engine tambahan, penanda tersebut bertugas sebagai ruang kosong yang nantinya akan dicari dan diganti secara otomatis (string.replace) oleh backend (server.js) dengan data asli mahasiswa sebelum halamannya ditampilkan di layar. Setelah data selesai dikoreksi oleh pengguna dan tombol "Update Data" ditekan, formulir akan mengirimkan versi data terbaru tersebut kembali ke server melalui metode POST untuk langsung menimpa data yang lama.
 
 ### E. `/2311102133_CRUD-MAHASISWA/package.json`###
 ```json
@@ -314,9 +314,8 @@ Pengguna dapat mengubah data yang ada dengan validasi yang sama seperti pada hal
   "type": "commonjs"
 }
 ```
-**penjelasan `/2311102133_CRUD-MAHASISWA/views/edit.html`**
-Program di atas merupakan halaman yang digunakan untuk mengubah data kontak yang sudah ada (Update). Saat halaman dibuka, aplikasi akan mengambil data kontak berdasarkan ID melalui endpoint GET /kontak/:id dan menampilkannya pada form input.
-Pengguna dapat mengubah data yang ada dengan validasi yang sama seperti pada halaman tambah. Setelah form disubmit, data akan dikirim ke server menggunakan Fetch API dengan metode PUT dalam format JSON. Proses ini dilakukan secara asynchronous tanpa reload halaman. Setelah data berhasil diperbarui, sistem akan menampilkan notifikasi dan mengarahkan pengguna kembali ke halaman utama.
+**penjelasan `/2311102133_CRUD-MAHASISWA/package.json`**
+File `package.json` ini ibarat identitas utama dari *project* Node.js. Di dalamnya berisi informasi dasar kayak nama *project*, versinya, dan konfigurasi lainnya. Nah karena di tugas ini kita murni pakai modul bawaan Node.js (nggak nginstall *library* dari luar via NPM), isinya emang simpel banget dan nggak ada tulisan `dependencies` sama sekali. Walaupun gitu, file ini tetep wajib dibikin biar *folder* ini valid dan dikenali oleh sistem sebagai *project* Node.js yang bener.
 
 ## 5. Link Video Presentasi
 https://drive.google.com/drive/folders/1t4o5d0Yb6jzZZ7FV-OmwJccXR4d-BwnK?usp=drive_link

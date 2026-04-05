@@ -1,3 +1,12 @@
+Ini adalah versi **Final & Paling Rapih**. Aku sudah perbaiki semua tanda bacanya biar di GitHub nanti:
+1. [cite_start]Setiap file punya kotak kodenya sendiri-sendiri (nggak nyampur). [cite: 1, 2]
+2. [cite_start]Penjelasan per file ada di bawah kotaknya masing-masing (persis kayak punya Nizal). [cite: 1, 2]
+3. [cite_start]Gambar-gambar tampil dengan benar. [cite: 1, 2]
+
+**Langsung COPY SEMUA teks di bawah ini:**
+
+---
+
 <h1 align="center">LAPORAN PRAKTIKUM</h1>
 <h1 align="center">APLIKASI BERBASIS PLATFORM</h1>
 
@@ -38,17 +47,17 @@
 
 ## 1. Dasar Teori
 
-* **HTML (HyperText Markup Language):** Merupakan bahasa dasar yang digunakan untuk membangun sebuah web dimana HTML menangani elemen-elemen dasar pada struktur sebuah website.
-* **CSS & Bootstrap:** Merupakan framework yang membantu memperindah tampilan dari laman web. Aplikasi ini menggunakan Bootstrap 5 melalui CDN untuk mempercepat pengembangan antarmuka web, mencakup pembuatan tabel yang responsif, tombol, dan form input.
-* **Pure Node.js:** Aplikasi ini dibangun menggunakan Node.js murni tanpa framework tambahan (seperti Express.js). Proses routing (pengaturan URL) dan penyajian data JSON ditangani langsung menggunakan modul bawaan `http` dan `fs`.
-* **JQuery & DataTables:** jQuery adalah library Javascript yang mempermudah manipulasi DOM. Dalam tugas ini, jQuery digunakan bersama plugin **DataTables** untuk menampilkan, memfilter, mencari, dan memanipulasi data mahasiswa dalam bentuk tabel secara dinamis yang bersumber dari API JSON lokal.
-* **JSON (JavaScript Object Notation):** Merupakan format pertukaran data yang ringan dan mudah dibaca. JSON digunakan sebagai format representasi data yang dikirim dari server (backend) ke client (frontend) untuk dirender ke dalam tabel secara dinamis.
+* [cite_start]**HTML (HyperText Markup Language):** Merupakan bahasa dasar yang digunakan untuk membangun sebuah web dimana HTML menangani elemen-elemen dasar pada struktur sebuah website. [cite: 1]
+* **CSS & Bootstrap:** Merupakan framework yang membantu memperindah tampilan dari laman web. [cite_start]Aplikasi ini menggunakan Bootstrap 5 melalui CDN untuk mempercepat pengembangan antarmuka web. [cite: 1]
+* **Pure Node.js:** Aplikasi ini dibangun menggunakan Node.js murni tanpa framework tambahan. [cite_start]Proses routing dan penyajian data JSON ditangani langsung menggunakan modul bawaan `http` dan `fs`. [cite: 1]
+* **JQuery & DataTables:** Library Javascript yang mempermudah manipulasi DOM. [cite_start]Digunakan untuk menampilkan data mahasiswa dalam bentuk tabel secara dinamis yang bersumber dari API JSON lokal. [cite: 1]
+* **JSON (JavaScript Object Notation):** Format pertukaran data yang ringan. [cite_start]Digunakan untuk mengirim data dari server ke client untuk dirender ke dalam tabel secara dinamis. [cite: 1]
 
 <br>
 
 ## 2. Struktur Direktori
 
-Karena menggunakan pendekatan **Pure Node.js**, aplikasi ini sangat ringan dan efisien karena tidak memerlukan instalasi *dependency* eksternal ataupun folder `node_modules`.
+[cite_start]Aplikasi ini sangat ringan dan efisien karena tidak memerlukan folder `node_modules`. [cite: 1, 2]
 
 ```text
 2311102133_CRUD-MAHASISWA/
@@ -69,25 +78,38 @@ Karena menggunakan pendekatan **Pure Node.js**, aplikasi ini sangat ringan dan e
 │
 ├── package.json           # Konfigurasi project
 └── README.md              # Dokumentasi aplikasi
-3. Struktur  Halaman
-Website CRUD Mahasiswa ini memiliki struktur halaman sebagai berikut :
+```
 
-Halaman Home
-Halaman home ini adalah halaman yang pertama kali ditampilkan ketika user mengakses web. halaman ini berisikan tabel daftar mahasiswa dan tombol tambah, edit, dan hapus data. Terdapat juga pop-up konfirmasi saat tombol hapus ditekan.
-<img src="assets/home.jpeg">
-<img src="assets/hapusdata.jpeg">
+<br>
 
-Halaman Form (Tambah Data)
-Digunakan untuk menambah data mahasiswa, dengan isi form berupa NIM, Nama Lengkap, dan Jenis Kelamin.
-<img src="assets/tambahdata.jpeg">
+## 3. Struktur Halaman
 
-Halaman Edit (Edit Data)
-Digunakan untuk mengedit atau memperbarui data yang ada di tabel baik itu NIM, Nama Lengkap, maupun Jenis Kelamin.
-<img src="assets/editdata.jpeg">
+### Halaman Home / Tampil Data
+Halaman utama yang menampilkan tabel mahasiswa memakai jQuery DataTables. [cite_start]Data diambil dari server dalam format JSON. [cite: 1, 2]
+<br>
+<img src="2311102133_CRUD-MAHASISWA/assets/home.jpeg" width="800">
+<br>
+[cite_start]Terdapat pop-up konfirmasi bawaan browser saat tombol hapus ditekan. [cite: 1, 2]
+<br>
+<img src="2311102133_CRUD-MAHASISWA/assets/hapusdata.jpeg" width="800">
 
-4. Kode Program
-A. server.js
-JavaScript
+### Halaman Form (Tambah Data)
+[cite_start]Digunakan untuk menambahkan data mahasiswa baru melalui method POST. [cite: 1, 2]
+<br>
+<img src="2311102133_CRUD-MAHASISWA/assets/tambahdata.jpeg" width="800">
+
+### Halaman Edit (Edit Data)
+[cite_start]Digunakan untuk memperbarui data mahasiswa berdasarkan ID yang dipilih. [cite: 1, 2]
+<br>
+<img src="2311102133_CRUD-MAHASISWA/assets/editdata.jpeg" width="800">
+
+<br>
+
+## 4. Kode Program
+
+### A. server.js (Backend)
+
+```javascript
 const http = require('http');
 const fs = require('fs');
 const url = require('url');
@@ -168,17 +190,20 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(3000, () => console.log('Server MONEV jalan di http://localhost:3000'));
-Penjelasan server.js
-Program di atas merupakan aplikasi backend murni menggunakan Node.js yang berjalan pada port 3000. Aplikasi ini berfungsi sebagai server untuk mengelola data mahasiswa yang disimpan sementara dalam variabel array. Modul bawaan http dan fs digunakan untuk memproses request dan menampilkan file frontend. Aplikasi ini menerapkan konsep CRUD. Endpoint /api/mahasiswa digunakan untuk menampilkan seluruh data dalam format JSON. Endpoint /tambah menangani POST untuk data baru, /edit/:id untuk memperbarui data berdasarkan ID, dan /hapus/:id untuk menghapus data. Saat server dijalankan, aplikasi dapat diakses melalui http://localhost:3000.
+```
 
-B. /views/index.html
-HTML
+**Penjelasan `server.js`:**
+Aplikasi backend menggunakan Pure Node.js murni untuk mengelola data mahasiswa dalam bentuk array di memori. [cite_start]Modul bawaan `http` digunakan untuk membuat server, `fs` untuk membaca file HTML, dan `querystring` untuk mengambil data dari form input. [cite: 1, 2]
+
+### B. /views/index.html (Tabel Data)
+
+```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <title>Data Mahasiswa</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+    <link href="[https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css](https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css)" rel="stylesheet">
+    <link rel="stylesheet" href="[https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css](https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css)">
 </head>
 <body class="bg-light">
     <div class="container mt-5">
@@ -202,9 +227,9 @@ HTML
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script src="[https://code.jquery.com/jquery-3.7.0.min.js](https://code.jquery.com/jquery-3.7.0.min.js)"></script>
+    <script src="[https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js](https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js)"></script>
+    <script src="[https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js](https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js)"></script>
     <script>
         $(document).ready(function() {
             $('#tabelMhs').DataTable({
@@ -222,16 +247,19 @@ HTML
     </script>
 </body>
 </html>
-Penjelasan /views/index.html
-Program di atas merupakan halaman utama aplikasi yang berfungsi untuk menampilkan data mahasiswa dalam bentuk tabel interaktif menggunakan plugin jQuery DataTables. Tampilan halaman dibangun menggunakan Bootstrap. Data diambil dari server melalui AJAX dengan endpoint /api/mahasiswa dalam format JSON yang kemudian ditampilkan secara dinamis ke dalam tabel. Pada setiap baris data tersedia tombol aksi untuk melakukan edit dan hapus data dengan konfirmasi.
+```
 
-C. /views/tambah.html
-HTML
+**Penjelasan `/views/index.html`:**
+Halaman utama yang menampilkan data dalam tabel interaktif menggunakan jQuery DataTables. [cite_start]Data diambil secara asynchronous lewat AJAX menuju endpoint `/api/mahasiswa` dalam format JSON. [cite: 1, 2]
+
+### C. /views/tambah.html (Tambah Data)
+
+```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <title>Tambah Mahasiswa</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="[https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css](https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css)" rel="stylesheet">
 </head>
 <body class="bg-light">
     <div class="container mt-5">
@@ -263,16 +291,19 @@ HTML
     </div>
 </body>
 </html>
-Penjelasan /views/tambah.html
-Program di atas merupakan halaman yang digunakan untuk menambahkan data mahasiswa baru (Create). Tampilan halaman dibangun menggunakan Bootstrap dengan form input yang terdiri dari NIM, nama, dan gender. Data yang dimasukkan akan dikirim ke server menggunakan method POST. Setelah data berhasil disimpan, pengguna akan diarahkan kembali ke halaman utama.
+```
 
-D. /views/edit.html
-HTML
+**Penjelasan `/views/tambah.html`:**
+[cite_start]Halaman form untuk menambah data mahasiswa baru menggunakan method POST. [cite: 1, 2]
+
+### D. /views/edit.html (Update Data)
+
+```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <title>Edit Mahasiswa</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="[https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css](https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css)" rel="stylesheet">
 </head>
 <body class="bg-light">
     <div class="container mt-5">
@@ -303,13 +334,3 @@ HTML
     </div>
 </body>
 </html>
-Penjelasan /views/edit.html
-Program di atas merupakan halaman yang digunakan untuk mengubah data yang sudah ada (Update). Saat halaman dipanggil oleh backend, server mengganti teks placeholder dengan data asli milik mahasiswa. Pengguna dapat mengubah data dan mengirimkannya kembali ke server dengan form method POST.
-
-5. Kesimpulan
-Aplikasi web CRUD Mahasiswa telah berhasil dibangun dengan memanfaatkan pendekatan Pure Node.js tanpa framework eksternal. Aplikasi ini telah mengimplementasikan 3 halaman fungsional dan operasi CRUD dengan baik. Data dirender dalam format JSON menggunakan plugin jQuery DataTables dan tampilan antarmuka web dibangun menggunakan framework Bootstrap 5, memenuhi seluruh kriteria spesifikasi teknis untuk tugas MONEV 1.
-
-6. Link Video Presentasi
-[Masukkan Link Google Drive Video Di Sini]
-
-[Masukkan Link Google Drive PPT Di Sini]

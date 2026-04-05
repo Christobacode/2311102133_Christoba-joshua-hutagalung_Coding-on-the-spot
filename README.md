@@ -56,21 +56,19 @@ HTML (HyperText Markup Language): Bahasa markup standar yang digunakan untuk mem
 
 Bootstrap 5: Framework CSS yang digunakan untuk membangun antarmuka web yang responsif dan modern secara cepat melalui kelas-utilitas dan komponen siap pakai.
 
-Pure Node.js: Lingkungan runtime JavaScript di sisi server yang dijalankan tanpa framework tambahan (seperti Express). Pengolahan server, routing, dan manipulasi data dilakukan secara manual menggunakan modul bawaan http.
+Pure Node.js: Lingkungan runtime JavaScript di sisi server yang dijalankan tanpa framework tambahan. Pengolahan server, routing, dan manipulasi data dilakukan secara manual menggunakan modul bawaan http.
 
-jQuery & DataTables: Library JavaScript yang menyederhanakan manipulasi DOM. Plugin DataTables digunakan untuk mengelola data dalam tabel secara otomatis, termasuk fitur pencarian dan paginasi.
+jQuery & DataTables: Library JavaScript yang menyederhanakan manipulasi DOM. Plugin DataTables digunakan untuk mengelola data dalam tabel secara otomatis.
 
 JSON (JavaScript Object Notation): Format pertukaran data yang ringan digunakan untuk mengirimkan data mahasiswa dari server ke client.
 
 2. Struktur Direktori
 
-Aplikasi ini menggunakan struktur yang minimalis karena tidak memerlukan dependensi eksternal yang besar (tanpa node_modules).
-
 2311102133_CRUD-MAHASISWA/
 │
 ├── assets/                # Folder penyimpanan gambar laporan
 │   ├── LogoTelkom.png
-│   ├── index.jpeg         # Screenshot Halaman Utama
+│   ├── home.jpeg          # Screenshot Halaman Utama
 │   ├── tambahdata.jpeg    # Screenshot Form Tambah
 │   ├── editdata.jpeg      # Screenshot Form Edit
 │   └── hapusdata.jpeg     # Screenshot Konfirmasi Hapus
@@ -87,21 +85,17 @@ Aplikasi ini menggunakan struktur yang minimalis karena tidak memerlukan depende
 
 3. Struktur Halaman
 
-Berikut adalah tampilan fungsionalitas dari aplikasi CRUD Mahasiswa:
-
 Halaman Utama (Tampil Data)
 
-Menampilkan daftar mahasiswa yang diambil secara dinamis dari API server melalui DataTables.
+Menampilkan daftar mahasiswa secara dinamis menggunakan DataTables dari sumber data JSON.
 
 
 
 
 
-<img src="2311102133_CRUD-MAHASISWA/assets/index.jpeg" width="800">
+<img src="2311102133_CRUD-MAHASISWA/assets/home.jpeg" width="800">
 
-Fitur Hapus Data
-
-Terdapat notifikasi konfirmasi sebelum data benar-benar dihapus dari memori server.
+Terdapat fitur konfirmasi hapus data untuk mencegah kesalahan penghapusan.
 
 
 
@@ -111,7 +105,7 @@ Terdapat notifikasi konfirmasi sebelum data benar-benar dihapus dari memori serv
 
 Halaman Tambah Data
 
-Formulir input untuk menambahkan NIM, Nama, dan Gender mahasiswa baru ke dalam database sementara.
+Formulir untuk memasukkan NIM, Nama Lengkap, dan Gender mahasiswa baru.
 
 
 
@@ -121,7 +115,7 @@ Formulir input untuk menambahkan NIM, Nama, dan Gender mahasiswa baru ke dalam d
 
 Halaman Edit Data
 
-Formulir untuk memperbarui informasi mahasiswa berdasarkan ID yang dipilih.
+Formulir untuk memperbarui data mahasiswa yang sudah ada di database sementara.
 
 
 
@@ -131,7 +125,7 @@ Formulir untuk memperbarui informasi mahasiswa berdasarkan ID yang dipilih.
 
 4. Kode Program
 
-server.js (Backend)
+A. server.js (Backend)
 
 const http = require('http');
 const fs = require('fs');
@@ -215,52 +209,10 @@ const server = http.createServer((req, res) => {
 server.listen(3000, () => console.log('Server berjalan di http://localhost:3000'));
 
 
-index.html
-
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <title>Sistem Mahasiswa</title>
-    <link href="[https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css](https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css)" rel="stylesheet">
-    <link rel="stylesheet" href="[https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css](https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css)">
-</head>
-<body class="bg-light">
-    <div class="container mt-5">
-        <h3 class="text-center mb-4">Data Mahasiswa</h3>
-        <a href="/tambah" class="btn btn-primary mb-3">Tambah Mahasiswa</a>
-        <table id="myTable" class="table table-striped table-bordered">
-            <thead class="table-dark">
-                <tr><th>NIM</th><th>Nama</th><th>Gender</th><th>Aksi</th></tr>
-            </thead>
-            <tbody></tbody>
-        </table>
-    </div>
-    <script src="[https://code.jquery.com/jquery-3.7.0.min.js](https://code.jquery.com/jquery-3.7.0.min.js)"></script>
-    <script src="[https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js](https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js)"></script>
-    <script>
-        $(document).ready(function() {
-            $('#myTable').DataTable({
-                ajax: { url: '/api/mahasiswa', dataSrc: '' },
-                columns: [
-                    { data: 'nim' }, { data: 'nama' }, { data: 'gender' },
-                    { data: null, render: d => `
-                        <a href="/edit/${d.id}" class="btn btn-sm btn-warning">Edit</a>
-                        <a href="/hapus/${d.id}" class="btn btn-sm btn-danger" onclick="return confirm('Yakin?')">Hapus</a>`
-                    }
-                ]
-            });
-        });
-    </script>
-</body>
-</html>
-
-
 5. Kesimpulan
 
 Aplikasi CRUD ini berhasil dibangun menggunakan arsitektur Node.js murni, menunjukkan pemahaman mendalam tentang manajemen request/response secara manual tanpa framework Express. Integrasi Bootstrap dan jQuery DataTables memberikan pengalaman pengguna yang baik dan profesional dalam pengelolaan data mahasiswa.
 
 6. Link Lampiran
 
-Video Presentasi: [Link GDrive]
-
-Slide PPT: [Link GDrive]
+Video Presentasi: https://drive.google.com/drive/folders/1t4o5d0Yb6jzZZ7FV-OmwJccXR4d-BwnK?usp=sharing

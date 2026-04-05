@@ -46,25 +46,24 @@
 **JAVASCRIPT & JQUERY** Javascript merupakan bahasa pemrograman scripting. jQuery adalah sebuah library Javascript yang memungkinkan manipulasi dokumen HTML dilakukan hanya dalam beberapa baris code. Dalam tugas ini, jQuery digunakan bersama plugin DataTables untuk menampilkan data mahasiswa secara dinamis yang bersumber dari API JSON lokal.<br>
 
 **JSON (JavaScript Object Notation)** merupakan format pertukaran data yang ringan dan mudah dibaca oleh manusia maupun mesin. JSON digunakan sebagai format data yang dikirim dari server ke client untuk dirender ke dalam tabel secara dinamis.<br>
-## 2. Stuktur Folder
-```
-daftar-kontak/
+## 2. Struktur Folder
+```text
+2311102133_CRUD-MAHASISWA/
 │
-├── node_modules/          # Folder dependency NodeJS
+├── assets/                # Folder untuk menyimpan gambar laporan
+│   ├── LogoTelkom.png
+│   ├── home.jpeg          
+│   ├── tambahdata.jpeg    
+│   ├── editdata.jpeg      
+│   └── hapusdata.jpeg     
 │
-|── assets/                # untuk menyimpan gambar
-├── public/                # Folder frontend 
+├── views/                 # Folder tampilan frontend
 │   ├── index.html         # Halaman utama (tabel)
-│   ├── form.html          # Halaman tambah data mahasiswa
-│   ├── edit.html          # Halaman edit data mahasiswa
-│   └── tambah.html        # Halaman tambah data mahasiswa
-│
-├── data.json              # Database sederhana (format JSON)
+│   ├── tambah.html        # Halaman tambah data mahasiswa
+│   └── edit.html          # Halaman edit data mahasiswa
 │
 ├── server.js              # Backend (NodeJS dan API CRUD)
-│
-├── package.json           # Konfigurasi project & dependency
-│
+├── package.json           # Konfigurasi project
 └── README.md              # Dokumentasi aplikasi
 ```
 ## 3. Struktur  Halaman

@@ -4,24 +4,13 @@
 <h2 align="center">TUGAS COTS MONEV 1</h2>
 <h2 align="center">CRUD DATA MAHASISWA</h2>
 
-
-
-
-
 <p align="center">
-<img src="2311102133_CRUD-MAHASISWA/assets/LogoTelkom.png" width="350">
+<img src="2311102133_CRUD-MAHASISWA/assets/LogoTelkom.png" width="350" alt="Logo Telkom University">
 </p>
-
-
-
-
-
-
-
 
 <h2 align="center">Disusun Oleh :</h2>
 
-<p align="center" style="font-size:28px;">
+<p align="center" style="font-size:24px;">
 <b>Christoba Joshua Hutagalung</b>
 
 
@@ -35,92 +24,114 @@
 <b>S1 Teknik Informatika 2023</b>
 </p>
 
-
-
-
-
 <h2 align="center">Dosen Pengampu :</h2>
 
-<p align="center" style="font-size:28px;">
-<b>Cahyo Prihantoro, S.Kom., M.Eng </b>
+<p align="center" style="font-size:24px;">
+<b>Cahyo Prihantoro, S.Kom., M.Eng</b>
 </p>
 
 
 
 
+
+<h2 align="center">LABORATORIUM HIGH PERFORMANCE
+
+
+
+FAKULTAS INFORMATIKA
+
+
+
+UNIVERSITAS TELKOM PURWOKERTO
+
+
+
+TAHUN 2026</h2>
+
 <hr>
 
 1. Dasar Teori
 
-HTML atau HyperText Markup Language merupakan bahasa dasar yang digunakan untuk membangun sebuah web dimana HTML menangani elemen-elemen dasar pada pembangunan sebuah website.
+HTML (HyperText Markup Language): Bahasa markup standar yang digunakan untuk membuat struktur dasar halaman web.
 
+Bootstrap 5: Framework CSS yang digunakan untuk membangun antarmuka web yang responsif dan modern secara cepat melalui kelas-utilitas dan komponen siap pakai.
 
+Pure Node.js: Lingkungan runtime JavaScript di sisi server yang dijalankan tanpa framework tambahan (seperti Express). Pengolahan server, routing, dan manipulasi data dilakukan secara manual menggunakan modul bawaan http.
 
-CSS & Bootstrap merupakan framework yang membantu memperindah tampilan dari laman web yang telah dibangun dengan HTML. Aplikasi ini menggunakan Bootstrap 5 melalui CDN untuk mempercepat pengembangan antarmuka web, mencakup pembuatan tabel, tombol, dan form input.
+jQuery & DataTables: Library JavaScript yang menyederhanakan manipulasi DOM. Plugin DataTables digunakan untuk mengelola data dalam tabel secara otomatis, termasuk fitur pencarian dan paginasi.
 
-
-
-Pure Node.js Aplikasi ini dibangun menggunakan Node.js murni tanpa framework tambahan. Node JS merupakan runtime environment yang memungkinkan JavaScript dijalankan di sisi server. Pada aplikasi ini, NodeJS menangani routing dan proses CRUD langsung menggunakan modul bawaan http dan fs.
-
-
-
-JAVASCRIPT & JQUERY Javascript, seperti namanya, merupakan bahasa pemrograman scripting. jQuery adalah sebuah library Javascript yang memungkinkan manipulasi dokumen HTML dilakukan hanya dalam beberapa baris code. Dalam tugas ini, jQuery digunakan bersama plugin DataTables untuk menampilkan data mahasiswa secara dinamis.
-
-
-
-JSON (JavaScript Object Notation) merupakan format pertukaran data yang ringan dan mudah dibaca. JSON digunakan sebagai format data yang dikirim dari server ke client untuk dirender ke dalam tabel.
-
-
+JSON (JavaScript Object Notation): Format pertukaran data yang ringan digunakan untuk mengirimkan data mahasiswa dari server ke client.
 
 2. Struktur Direktori
 
-Karena menggunakan pendekatan Pure Node.js, aplikasi ini sangat efisien dan tidak memerlukan folder node_modules.
+Aplikasi ini menggunakan struktur yang minimalis karena tidak memerlukan dependensi eksternal yang besar (tanpa node_modules).
 
 2311102133_CRUD-MAHASISWA/
 │
-├── assets/                # Folder untuk menyimpan screenshot laporan
+├── assets/                # Folder penyimpanan gambar laporan
 │   ├── LogoTelkom.png
-│   ├── home.jpeg          # Halaman utama (tabel)
-│   ├── tambahdata.jpeg    # Form tambah
-│   ├── editdata.jpeg      # Form edit
-│   └── hapusdata.jpeg     # Pop up konfirmasi hapus
+│   ├── index.jpeg         # Screenshot Halaman Utama
+│   ├── tambahdata.jpeg    # Screenshot Form Tambah
+│   ├── editdata.jpeg      # Screenshot Form Edit
+│   └── hapusdata.jpeg     # Screenshot Konfirmasi Hapus
 │
-├── views/                 # Folder frontend (tampilan HTML)
-│   ├── index.html         # Halaman utama (tabel)
-│   ├── tambah.html        # Halaman form tambah data
-│   └── edit.html          # Halaman edit data
+├── views/                 # Folder tampilan (Frontend)
+│   ├── index.html         # Tampilan tabel utama
+│   ├── tambah.html        # Form input data baru
+│   └── edit.html          # Form pembaruan data
 │
-├── server.js              # Backend (Pure NodeJS, API CRUD)
-│
+├── server.js              # Server Backend (Logic & Routing)
 ├── package.json           # Konfigurasi project
-└── README.md              # Dokumentasi aplikasi
+└── README.md              # Dokumentasi lengkap
 
 
 3. Struktur Halaman
 
-Website CRUD Mahasiswa ini memiliki struktur halaman sebagai berikut :
+Berikut adalah tampilan fungsionalitas dari aplikasi CRUD Mahasiswa:
 
-Halaman Home / Tampil Data
+Halaman Utama (Tampil Data)
 
-Halaman home ini adalah halaman yang pertama kali ditampilkan ketika user mengakses web. halaman ini berisikan tabel daftar mahasiswa menggunakan jQuery DataTables dan tombol aksi.
-<img src="2311102133_CRUD-MAHASISWA/assets/home.jpeg">
+Menampilkan daftar mahasiswa yang diambil secara dinamis dari API server melalui DataTables.
 
-Terdapat pop-up konfirmasi bawaan browser saat tombol hapus ditekan untuk mencegah kesalahan penghapusan data.
-<img src="2311102133_CRUD-MAHASISWA/assets/hapusdata.jpeg">
 
-Halaman Form (Tambah Data)
 
-Digunakan untuk menambah data mahasiswa baru, dengan isi form berupa NIM, Nama Lengkap, dan Jenis Kelamin.
-<img src="2311102133_CRUD-MAHASISWA/assets/tambahdata.jpeg">
 
-Halaman Edit (Edit Data)
 
-Digunakan untuk mengedit atau memperbarui data mahasiswa yang sudah tersimpan di server.
-<img src="2311102133_CRUD-MAHASISWA/assets/editdata.jpeg">
+<img src="2311102133_CRUD-MAHASISWA/assets/index.jpeg" width="800">
+
+Fitur Hapus Data
+
+Terdapat notifikasi konfirmasi sebelum data benar-benar dihapus dari memori server.
+
+
+
+
+
+<img src="2311102133_CRUD-MAHASISWA/assets/hapusdata.jpeg" width="800">
+
+Halaman Tambah Data
+
+Formulir input untuk menambahkan NIM, Nama, dan Gender mahasiswa baru ke dalam database sementara.
+
+
+
+
+
+<img src="2311102133_CRUD-MAHASISWA/assets/tambahdata.jpeg" width="800">
+
+Halaman Edit Data
+
+Formulir untuk memperbarui informasi mahasiswa berdasarkan ID yang dipilih.
+
+
+
+
+
+<img src="2311102133_CRUD-MAHASISWA/assets/editdata.jpeg" width="800">
 
 4. Kode Program
 
-A. server.js
+server.js (Backend)
 
 const http = require('http');
 const fs = require('fs');
@@ -153,10 +164,10 @@ const server = http.createServer((req, res) => {
         });
     }
     else if (path === '/tambah' && req.method === 'POST') {
-        let bodyForm = '';
-        req.on('data', chunk => { bodyForm += chunk.toString(); });
+        let body = '';
+        req.on('data', chunk => { body += chunk.toString(); });
         req.on('end', () => {
-            const formData = qs.parse(bodyForm);
+            const formData = qs.parse(body);
             const newId = dataMahasiswa.length > 0 ? dataMahasiswa[dataMahasiswa.length - 1].id + 1 : 1;
             dataMahasiswa.push({ id: newId, nim: formData.nim, nama: formData.nama, gender: formData.gender });
             res.writeHead(302, { 'Location': '/' });
@@ -164,91 +175,77 @@ const server = http.createServer((req, res) => {
         });
     }
     else if (path.startsWith('/edit/') && req.method === 'GET') {
-        const idMhs = parseInt(path.split('/')[2]);
-        const mhs = dataMahasiswa.find(m => m.id === idMhs);
+        const id = parseInt(path.split('/')[2]);
+        const mhs = dataMahasiswa.find(m => m.id === id);
         if (mhs) {
             fs.readFile('./views/edit.html', 'utf8', (err, content) => {
-                let htmlSiapTampil = content
+                let rendered = content
                     .replace('{{id}}', mhs.id).replace('{{nim}}', mhs.nim).replace('{{nama}}', mhs.nama)
                     .replace('{{select_L}}', mhs.gender === 'Laki-laki' ? 'selected' : '')
                     .replace('{{select_P}}', mhs.gender === 'Perempuan' ? 'selected' : '');
                 res.writeHead(200, { 'Content-Type': 'text/html' });
-                res.end(htmlSiapTampil);
+                res.end(rendered);
             });
         }
     }
     else if (path.startsWith('/edit/') && req.method === 'POST') {
-        const idMhs = parseInt(path.split('/')[2]);
-        let bodyForm = '';
-        req.on('data', chunk => { bodyForm += chunk.toString(); });
+        const id = parseInt(path.split('/')[2]);
+        let body = '';
+        req.on('data', chunk => { body += chunk.toString(); });
         req.on('end', () => {
-            const formData = qs.parse(bodyForm);
-            const indexMhs = dataMahasiswa.findIndex(m => m.id === idMhs);
-            if (indexMhs !== -1) {
-                dataMahasiswa[indexMhs].nim = formData.nim;
-                dataMahasiswa[indexMhs].nama = formData.nama;
-                dataMahasiswa[indexMhs].gender = formData.gender;
+            const formData = qs.parse(body);
+            const index = dataMahasiswa.findIndex(m => m.id === id);
+            if (index !== -1) {
+                dataMahasiswa[index].nim = formData.nim;
+                dataMahasiswa[index].nama = formData.nama;
+                dataMahasiswa[index].gender = formData.gender;
             }
             res.writeHead(302, { 'Location': '/' });
             res.end();
         });
     }
     else if (path.startsWith('/hapus/') && req.method === 'GET') {
-        const idMhs = parseInt(path.split('/')[2]);
-        dataMahasiswa = dataMahasiswa.filter(m => m.id !== idMhs);
+        const id = parseInt(path.split('/')[2]);
+        dataMahasiswa = dataMahasiswa.filter(m => m.id !== id);
         res.writeHead(302, { 'Location': '/' });
         res.end();
     }
 });
 
-server.listen(3000, () => console.log('Server MONEV jalan di http://localhost:3000'));
+server.listen(3000, () => console.log('Server berjalan di http://localhost:3000'));
 
 
-Penjelasan server.js
-Program di atas merupakan backend menggunakan Pure Node.js murni yang menangani server HTTP. Modul http digunakan untuk membuat server, fs untuk manajemen file, dan url/qs untuk routing serta parsing data. Data disimpan dalam array dataMahasiswa dan disajikan sebagai API JSON.
-
-B. /views/index.html
+index.html
 
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <title>Data Mahasiswa</title>
+    <title>Sistem Mahasiswa</title>
     <link href="[https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css](https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css)" rel="stylesheet">
     <link rel="stylesheet" href="[https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css](https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css)">
 </head>
 <body class="bg-light">
     <div class="container mt-5">
-        <div class="card shadow-sm">
-            <div class="card-body">
-                <h3 class="mb-4 text-center">Data Mahasiswa (Tugas CRUD MONEV)</h3>
-                <a href="/tambah" class="btn btn-primary mb-4">+ Input Mahasiswa Baru</a>
-                <table id="tabelMhs" class="table table-hover table-bordered" style="width:100%">
-                    <thead class="table-dark">
-                        <tr>
-                            <th>NIM</th>
-                            <th>Nama Lengkap</th>
-                            <th>Gender</th>
-                            <th class="text-center">Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
-            </div>
-        </div>
+        <h3 class="text-center mb-4">Data Mahasiswa</h3>
+        <a href="/tambah" class="btn btn-primary mb-3">Tambah Mahasiswa</a>
+        <table id="myTable" class="table table-striped table-bordered">
+            <thead class="table-dark">
+                <tr><th>NIM</th><th>Nama</th><th>Gender</th><th>Aksi</th></tr>
+            </thead>
+            <tbody></tbody>
+        </table>
     </div>
     <script src="[https://code.jquery.com/jquery-3.7.0.min.js](https://code.jquery.com/jquery-3.7.0.min.js)"></script>
     <script src="[https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js](https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js)"></script>
-    <script src="[https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js](https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js)"></script>
     <script>
         $(document).ready(function() {
-            $('#tabelMhs').DataTable({
+            $('#myTable').DataTable({
                 ajax: { url: '/api/mahasiswa', dataSrc: '' },
                 columns: [
                     { data: 'nim' }, { data: 'nama' }, { data: 'gender' },
-                    { data: null, className: "text-center", render: function(data, type, row) {
-                            return `<a href="/edit/${row.id}" class="btn btn-warning btn-sm">Edit</a>
-                                    <a href="/hapus/${row.id}" class="btn btn-danger btn-sm" onclick="return confirm('Yakin hapus?')">Hapus</a>`;
-                        }
+                    { data: null, render: d => `
+                        <a href="/edit/${d.id}" class="btn btn-sm btn-warning">Edit</a>
+                        <a href="/hapus/${d.id}" class="btn btn-sm btn-danger" onclick="return confirm('Yakin?')">Hapus</a>`
                     }
                 ]
             });
@@ -260,10 +257,10 @@ B. /views/index.html
 
 5. Kesimpulan
 
-Aplikasi CRUD Mahasiswa ini telah berhasil dibangun menggunakan Pure Node.js, Bootstrap 5, dan jQuery DataTables. Seluruh fungsi penambahan, penampilan, pembaruan, dan penghapusan data berjalan dengan baik dengan komunikasi data berbasis JSON.
+Aplikasi CRUD ini berhasil dibangun menggunakan arsitektur Node.js murni, menunjukkan pemahaman mendalam tentang manajemen request/response secara manual tanpa framework Express. Integrasi Bootstrap dan jQuery DataTables memberikan pengalaman pengguna yang baik dan profesional dalam pengelolaan data mahasiswa.
 
-6. Link Video Presentasi
+6. Link Lampiran
 
-[Link Google Drive Video Presentasi]
+Video Presentasi: [Link GDrive]
 
-[Link Google Drive File PPT]
+Slide PPT: [Link GDrive]

@@ -4,101 +4,124 @@
 <h2 align="center">TUGAS COTS MONEV 1</h2>
 <h2 align="center">CRUD DATA MAHASISWA</h2>
 
+
+
+
+
 <p align="center">
-<img src="2311102133_CRUD-MAHASISWA/assets/LogoTelkom.png" width="350" alt="Logo Telkom University">
+<img src="2311102133_CRUD-MAHASISWA/assets/LogoTelkom.png" width="350">
 </p>
+
+
+
+
+
+
+
 
 <h2 align="center">Disusun Oleh :</h2>
 
-<p align="center" style="font-size:24px;">
+<p align="center" style="font-size:28px;">
 <b>Christoba Joshua Hutagalung</b>
+
+
 
 
 <b>2311102133</b>
 
 
+
+
 <b>S1 Teknik Informatika 2023</b>
 </p>
 
+
+
+
+
 <h2 align="center">Dosen Pengampu :</h2>
 
-<p align="center" style="font-size:24px;">
-<b>Cahyo Prihantoro, S.Kom., M.Eng</b>
+<p align="center" style="font-size:28px;">
+<b>Cahyo Prihantoro, S.Kom., M.Eng </b>
 </p>
 
 
 
-<h2 align="center">LABORATORIUM HIGH PERFORMANCE
-
-
-FAKULTAS INFORMATIKA
-
-
-UNIVERSITAS TELKOM PURWOKERTO
-
-
-TAHUN 2026</h2>
 
 <hr>
 
 1. Dasar Teori
-HTML (HyperText Markup Language): Bahasa dasar struktur website.
 
-CSS & Bootstrap: Framework untuk memperindah tampilan menggunakan Bootstrap 5 via CDN.
+HTML atau HyperText Markup Language merupakan bahasa dasar yang digunakan untuk membangun sebuah web dimana HTML menangani elemen-elemen dasar pada pembangunan sebuah website.
 
-Pure Node.js: Dibangun menggunakan Node.js murni tanpa framework tambahan (seperti Express.js) untuk handling routing dan CRUD.
 
-JQuery & DataTables: Library Javascript dan plugin untuk menampilkan data mahasiswa dalam tabel dinamis.
 
-JSON (JavaScript Object Notation): Format pertukaran data dari server ke client.
+CSS & Bootstrap merupakan framework yang membantu memperindah tampilan dari laman web yang telah dibangun dengan HTML. Aplikasi ini menggunakan Bootstrap 5 melalui CDN untuk mempercepat pengembangan antarmuka web, mencakup pembuatan tabel, tombol, dan form input.
+
+
+
+Pure Node.js Aplikasi ini dibangun menggunakan Node.js murni tanpa framework tambahan. Node JS merupakan runtime environment yang memungkinkan JavaScript dijalankan di sisi server. Pada aplikasi ini, NodeJS menangani routing dan proses CRUD langsung menggunakan modul bawaan http dan fs.
+
+
+
+JAVASCRIPT & JQUERY Javascript, seperti namanya, merupakan bahasa pemrograman scripting. jQuery adalah sebuah library Javascript yang memungkinkan manipulasi dokumen HTML dilakukan hanya dalam beberapa baris code. Dalam tugas ini, jQuery digunakan bersama plugin DataTables untuk menampilkan data mahasiswa secara dinamis.
+
+
+
+JSON (JavaScript Object Notation) merupakan format pertukaran data yang ringan dan mudah dibaca. JSON digunakan sebagai format data yang dikirim dari server ke client untuk dirender ke dalam tabel.
+
+
 
 2. Struktur Direktori
-Plaintext
+
+Karena menggunakan pendekatan Pure Node.js, aplikasi ini sangat efisien dan tidak memerlukan folder node_modules.
+
 2311102133_CRUD-MAHASISWA/
 │
-├── assets/                # Screenshot laporan
+├── assets/                # Folder untuk menyimpan screenshot laporan
 │   ├── LogoTelkom.png
-│   ├── home.jpeg          # Halaman utama
+│   ├── home.jpeg          # Halaman utama (tabel)
 │   ├── tambahdata.jpeg    # Form tambah
 │   ├── editdata.jpeg      # Form edit
-│   └── hapusdata.jpeg     # Pop up konfirmasi
+│   └── hapusdata.jpeg     # Pop up konfirmasi hapus
 │
-├── views/                 # Frontend
-│   ├── index.html
-│   ├── tambah.html
-│   └── edit.html
+├── views/                 # Folder frontend (tampilan HTML)
+│   ├── index.html         # Halaman utama (tabel)
+│   ├── tambah.html        # Halaman form tambah data
+│   └── edit.html          # Halaman edit data
 │
-├── server.js              # Backend
+├── server.js              # Backend (Pure NodeJS, API CRUD)
 │
-├── package.json
-└── README.md
+├── package.json           # Konfigurasi project
+└── README.md              # Dokumentasi aplikasi
+
+
 3. Struktur Halaman
+
+Website CRUD Mahasiswa ini memiliki struktur halaman sebagai berikut :
+
 Halaman Home / Tampil Data
-Menampilkan data mahasiswa menggunakan jQuery DataTables dari sumber JSON.
 
+Halaman home ini adalah halaman yang pertama kali ditampilkan ketika user mengakses web. halaman ini berisikan tabel daftar mahasiswa menggunakan jQuery DataTables dan tombol aksi.
+<img src="2311102133_CRUD-MAHASISWA/assets/home.jpeg">
 
-<img src="2311102133_CRUD-MAHASISWA/assets/home.jpeg" width="800">
-
-Konfirmasi hapus data menggunakan alert bawaan.
-
-
-<img src="2311102133_CRUD-MAHASISWA/assets/hapusdata.jpeg" width="800">
+Terdapat pop-up konfirmasi bawaan browser saat tombol hapus ditekan untuk mencegah kesalahan penghapusan data.
+<img src="2311102133_CRUD-MAHASISWA/assets/hapusdata.jpeg">
 
 Halaman Form (Tambah Data)
-Form input NIM, Nama, dan Gender menggunakan metode POST.
 
-
-<img src="2311102133_CRUD-MAHASISWA/assets/tambahdata.jpeg" width="800">
+Digunakan untuk menambah data mahasiswa baru, dengan isi form berupa NIM, Nama Lengkap, dan Jenis Kelamin.
+<img src="2311102133_CRUD-MAHASISWA/assets/tambahdata.jpeg">
 
 Halaman Edit (Edit Data)
-Mengubah data mahasiswa berdasarkan ID dengan manipulasi string placeholder dari server.
 
-
-<img src="2311102133_CRUD-MAHASISWA/assets/editdata.jpeg" width="800">
+Digunakan untuk mengedit atau memperbarui data mahasiswa yang sudah tersimpan di server.
+<img src="2311102133_CRUD-MAHASISWA/assets/editdata.jpeg">
 
 4. Kode Program
-A. server.js (Backend)
-JavaScript
+
+A. server.js
+
 const http = require('http');
 const fs = require('fs');
 const url = require('url');
@@ -179,10 +202,68 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(3000, () => console.log('Server MONEV jalan di http://localhost:3000'));
+
+
+Penjelasan server.js
+Program di atas merupakan backend menggunakan Pure Node.js murni yang menangani server HTTP. Modul http digunakan untuk membuat server, fs untuk manajemen file, dan url/qs untuk routing serta parsing data. Data disimpan dalam array dataMahasiswa dan disajikan sebagai API JSON.
+
+B. /views/index.html
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <title>Data Mahasiswa</title>
+    <link href="[https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css](https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css)" rel="stylesheet">
+    <link rel="stylesheet" href="[https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css](https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css)">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h3 class="mb-4 text-center">Data Mahasiswa (Tugas CRUD MONEV)</h3>
+                <a href="/tambah" class="btn btn-primary mb-4">+ Input Mahasiswa Baru</a>
+                <table id="tabelMhs" class="table table-hover table-bordered" style="width:100%">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>NIM</th>
+                            <th>Nama Lengkap</th>
+                            <th>Gender</th>
+                            <th class="text-center">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="[https://code.jquery.com/jquery-3.7.0.min.js](https://code.jquery.com/jquery-3.7.0.min.js)"></script>
+    <script src="[https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js](https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js)"></script>
+    <script src="[https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js](https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js)"></script>
+    <script>
+        $(document).ready(function() {
+            $('#tabelMhs').DataTable({
+                ajax: { url: '/api/mahasiswa', dataSrc: '' },
+                columns: [
+                    { data: 'nim' }, { data: 'nama' }, { data: 'gender' },
+                    { data: null, className: "text-center", render: function(data, type, row) {
+                            return `<a href="/edit/${row.id}" class="btn btn-warning btn-sm">Edit</a>
+                                    <a href="/hapus/${row.id}" class="btn btn-danger btn-sm" onclick="return confirm('Yakin hapus?')">Hapus</a>`;
+                        }
+                    }
+                ]
+            });
+        });
+    </script>
+</body>
+</html>
+
+
 5. Kesimpulan
-Aplikasi CRUD Mahasiswa berhasil dibangun menggunakan Pure Node.js, Bootstrap 5, dan jQuery DataTables dengan data format JSON sesuai kriteria MONEV 1.
 
-6. Link Lampiran
-Video Presentasi MONEV 1: [Masukkan Link GDrive Video Di Sini]
+Aplikasi CRUD Mahasiswa ini telah berhasil dibangun menggunakan Pure Node.js, Bootstrap 5, dan jQuery DataTables. Seluruh fungsi penambahan, penampilan, pembaruan, dan penghapusan data berjalan dengan baik dengan komunikasi data berbasis JSON.
 
-Slide Presentasi (PPT): [Masukkan Link GDrive PPT Di Sini]
+6. Link Video Presentasi
+
+[Link Google Drive Video Presentasi]
+
+[Link Google Drive File PPT]

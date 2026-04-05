@@ -1,54 +1,59 @@
-\<h1 align="center"\>LAPORAN PRAKTIKUM\</h1\>
-\<h1 align="center"\>APLIKASI BERBASIS PLATFORM\</h1\>
+<h1 align="center">LAPORAN PRAKTIKUM</h1>
+<h1 align="center">APLIKASI BERBASIS PLATFORM</h1>
 
-<br>
+<h2 align="center">TUGAS COTS MONEV 1</h2>
+<h2 align="center">CRUD DATA MAHASISWA</h2>
 
-\<h2 align="center"\>TUGAS COTS MONEV 1\</h2\>
-\<h2 align="center"\>CRUD DATA MAHASISWA\</h2\>
+<p align="center">
+<img src="2311102133_CRUD-MAHASISWA/assets/LogoTelkom.png" width="350" alt="Logo Telkom University">
+</p>
 
-<br>
+<h2 align="center">Disusun Oleh :</h2>
 
-\<p align="center"\>
-\<img src="2311102133\_CRUD-MAHASISWA/assets/LogoTelkom.png" width="350" alt="Logo Telkom University"\>
-\</p\>
+<p align="center" style="font-size:24px;">
+<b>Christoba Joshua Hutagalung</b>
 
-<br>
 
-\<h2 align="center"\>Disusun Oleh :\</h2\>
+<b>2311102133</b>
 
-\<p align="center" style="font-size:24px;"\>
-\<b\>Christoba Joshua Hutagalung\</b\><br>
-\<b\>2311102133\</b\><br>
-\<b\>S1 Teknik Informatika 2023\</b\>
-\</p\>
 
-<br>
+<b>S1 Teknik Informatika 2023</b>
+</p>
 
-\<h2 align="center"\>Dosen Pengampu :\</h2\>
+<h2 align="center">Dosen Pengampu :</h2>
 
-\<p align="center" style="font-size:24px;"\>
-\<b\>Cahyo Prihantoro, S.Kom., M.Eng\</b\>
-\</p\>
+<p align="center" style="font-size:24px;">
+<b>Cahyo Prihantoro, S.Kom., M.Eng</b>
+</p>
 
-<br><br>
 
-\<h2 align="center"\>LABORATORIUM HIGH PERFORMANCE<br>FAKULTAS INFORMATIKA<br>UNIVERSITAS TELKOM PURWOKERTO<br>TAHUN 2026\</h2\>
 
-\<hr\>
+<h2 align="center">LABORATORIUM HIGH PERFORMANCE
 
-## 1\. Dasar Teori
 
-  * **HTML (HyperText Markup Language):** Bahasa dasar struktur website.
-  * **CSS & Bootstrap:** Framework untuk memperindah tampilan menggunakan Bootstrap 5 via CDN.
-  * **Pure Node.js:** Dibangun menggunakan Node.js murni tanpa framework tambahan (seperti Express.js) untuk handling routing dan CRUD.
-  * **JQuery & DataTables:** Library Javascript dan plugin untuk menampilkan data mahasiswa dalam tabel dinamis.
-  * **JSON (JavaScript Object Notation):** Format pertukaran data dari server ke client.
+FAKULTAS INFORMATIKA
 
-<br>
 
-## 2\. Struktur Direktori
+UNIVERSITAS TELKOM PURWOKERTO
 
-```text
+
+TAHUN 2026</h2>
+
+<hr>
+
+1. Dasar Teori
+HTML (HyperText Markup Language): Bahasa dasar struktur website.
+
+CSS & Bootstrap: Framework untuk memperindah tampilan menggunakan Bootstrap 5 via CDN.
+
+Pure Node.js: Dibangun menggunakan Node.js murni tanpa framework tambahan (seperti Express.js) untuk handling routing dan CRUD.
+
+JQuery & DataTables: Library Javascript dan plugin untuk menampilkan data mahasiswa dalam tabel dinamis.
+
+JSON (JavaScript Object Notation): Format pertukaran data dari server ke client.
+
+2. Struktur Direktori
+Plaintext
 2311102133_CRUD-MAHASISWA/
 │
 ├── assets/                # Screenshot laporan
@@ -67,41 +72,33 @@
 │
 ├── package.json
 └── README.md
-```
-
-<br>
-
-## 3\. Struktur Halaman
-
-### Halaman Home / Tampil Data
-
+3. Struktur Halaman
+Halaman Home / Tampil Data
 Menampilkan data mahasiswa menggunakan jQuery DataTables dari sumber JSON.
-<br>
-\<img src="2311102133\_CRUD-MAHASISWA/assets/home.jpeg" width="800"\>
+
+
+<img src="2311102133_CRUD-MAHASISWA/assets/home.jpeg" width="800">
 
 Konfirmasi hapus data menggunakan alert bawaan.
-<br>
-\<img src="2311102133\_CRUD-MAHASISWA/assets/hapusdata.jpeg" width="800"\>
 
-### Halaman Form (Tambah Data)
 
+<img src="2311102133_CRUD-MAHASISWA/assets/hapusdata.jpeg" width="800">
+
+Halaman Form (Tambah Data)
 Form input NIM, Nama, dan Gender menggunakan metode POST.
-<br>
-\<img src="2311102133\_CRUD-MAHASISWA/assets/tambahdata.jpeg" width="800"\>
 
-### Halaman Edit (Edit Data)
 
+<img src="2311102133_CRUD-MAHASISWA/assets/tambahdata.jpeg" width="800">
+
+Halaman Edit (Edit Data)
 Mengubah data mahasiswa berdasarkan ID dengan manipulasi string placeholder dari server.
-<br>
-\<img src="2311102133\_CRUD-MAHASISWA/assets/editdata.jpeg" width="800"\>
 
-<br>
 
-## 4\. Kode Program
+<img src="2311102133_CRUD-MAHASISWA/assets/editdata.jpeg" width="800">
 
-### A. server.js (Backend)
-
-```javascript
+4. Kode Program
+A. server.js (Backend)
+JavaScript
 const http = require('http');
 const fs = require('fs');
 const url = require('url');
@@ -182,17 +179,10 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(3000, () => console.log('Server MONEV jalan di http://localhost:3000'));
-```
-
-<br>
-
-## 5\. Kesimpulan
-
+5. Kesimpulan
 Aplikasi CRUD Mahasiswa berhasil dibangun menggunakan Pure Node.js, Bootstrap 5, dan jQuery DataTables dengan data format JSON sesuai kriteria MONEV 1.
 
-<br>
+6. Link Lampiran
+Video Presentasi MONEV 1: [Masukkan Link GDrive Video Di Sini]
 
-## 6\. Link Lampiran
-
-  - **Video Presentasi MONEV 1:** [Masukkan Link GDrive Video Di Sini]
-  - **Slide Presentasi (PPT):** [Masukkan Link GDrive PPT Di Sini]
+Slide Presentasi (PPT): [Masukkan Link GDrive PPT Di Sini]

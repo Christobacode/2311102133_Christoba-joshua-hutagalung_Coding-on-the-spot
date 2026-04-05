@@ -1,12 +1,3 @@
-Ini adalah versi **Final & Paling Rapih**. Aku sudah perbaiki semua tanda bacanya biar di GitHub nanti:
-1. [cite_start]Setiap file punya kotak kodenya sendiri-sendiri (nggak nyampur). [cite: 1, 2]
-2. [cite_start]Penjelasan per file ada di bawah kotaknya masing-masing (persis kayak punya Nizal). [cite: 1, 2]
-3. [cite_start]Gambar-gambar tampil dengan benar. [cite: 1, 2]
-
-**Langsung COPY SEMUA teks di bawah ini:**
-
----
-
 <h1 align="center">LAPORAN PRAKTIKUM</h1>
 <h1 align="center">APLIKASI BERBASIS PLATFORM</h1>
 
@@ -47,17 +38,17 @@ Ini adalah versi **Final & Paling Rapih**. Aku sudah perbaiki semua tanda bacany
 
 ## 1. Dasar Teori
 
-* [cite_start]**HTML (HyperText Markup Language):** Merupakan bahasa dasar yang digunakan untuk membangun sebuah web dimana HTML menangani elemen-elemen dasar pada struktur sebuah website. [cite: 1]
-* **CSS & Bootstrap:** Merupakan framework yang membantu memperindah tampilan dari laman web. [cite_start]Aplikasi ini menggunakan Bootstrap 5 melalui CDN untuk mempercepat pengembangan antarmuka web. [cite: 1]
-* **Pure Node.js:** Aplikasi ini dibangun menggunakan Node.js murni tanpa framework tambahan. [cite_start]Proses routing dan penyajian data JSON ditangani langsung menggunakan modul bawaan `http` dan `fs`. [cite: 1]
-* **JQuery & DataTables:** Library Javascript yang mempermudah manipulasi DOM. [cite_start]Digunakan untuk menampilkan data mahasiswa dalam bentuk tabel secara dinamis yang bersumber dari API JSON lokal. [cite: 1]
-* **JSON (JavaScript Object Notation):** Format pertukaran data yang ringan. [cite_start]Digunakan untuk mengirim data dari server ke client untuk dirender ke dalam tabel secara dinamis. [cite: 1]
+* **HTML (HyperText Markup Language):** Merupakan bahasa dasar yang digunakan untuk membangun sebuah web dimana HTML menangani elemen-elemen dasar pada struktur sebuah website.
+* **CSS & Bootstrap:** Merupakan framework yang membantu memperindah tampilan dari laman web. Aplikasi ini menggunakan Bootstrap 5 melalui CDN untuk mempercepat pengembangan antarmuka web, mencakup pembuatan tabel yang responsif, tombol, dan form input.
+* **Pure Node.js:** Aplikasi ini dibangun menggunakan Node.js murni tanpa framework tambahan (seperti Express.js). Proses routing (pengaturan URL) dan penyajian data JSON ditangani langsung menggunakan modul bawaan `http` dan `fs`.
+* **JQuery & DataTables:** jQuery adalah library Javascript yang mempermudah manipulasi DOM. Dalam tugas ini, jQuery digunakan bersama plugin **DataTables** untuk menampilkan, memfilter, mencari, dan memanipulasi data mahasiswa dalam bentuk tabel secara dinamis yang bersumber dari API JSON lokal.
+* **JSON (JavaScript Object Notation):** Merupakan format pertukaran data yang ringan dan mudah dibaca. JSON digunakan sebagai format representasi data yang dikirim dari server (backend) ke client (frontend) untuk dirender ke dalam tabel secara dinamis.
 
 <br>
 
 ## 2. Struktur Direktori
 
-[cite_start]Aplikasi ini sangat ringan dan efisien karena tidak memerlukan folder `node_modules`. [cite: 1, 2]
+Karena menggunakan pendekatan **Pure Node.js**, aplikasi ini sangat ringan dan efisien karena tidak memerlukan instalasi *dependency* eksternal ataupun folder `node_modules`.
 
 ```text
 2311102133_CRUD-MAHASISWA/
@@ -78,38 +69,35 @@ Ini adalah versi **Final & Paling Rapih**. Aku sudah perbaiki semua tanda bacany
 │
 ├── package.json           # Konfigurasi project
 └── README.md              # Dokumentasi aplikasi
-```
+3. Struktur Halaman
+Website CRUD Mahasiswa ini memiliki struktur halaman sebagai berikut:
 
-<br>
+Halaman Home / Tampil Data
+Halaman ini menampilkan data mahasiswa dalam bentuk tabel interaktif memakai plugin jQuery DataTables. Data diambil dari server dalam format JSON dan ditampilkan secara dinamis.
 
-## 3. Struktur Halaman
 
-### Halaman Home / Tampil Data
-Halaman utama yang menampilkan tabel mahasiswa memakai jQuery DataTables. [cite_start]Data diambil dari server dalam format JSON. [cite: 1, 2]
-<br>
-<img src="2311102133_CRUD-MAHASISWA/assets/home.jpeg" width="800">
-<br>
-[cite_start]Terdapat pop-up konfirmasi bawaan browser saat tombol hapus ditekan. [cite: 1, 2]
-<br>
-<img src="2311102133_CRUD-MAHASISWA/assets/hapusdata.jpeg" width="800">
+<img src="2311102133_CRUD-MAHASISWA/assets/home.jpeg" alt="Halaman Home" width="800">
 
-### Halaman Form (Tambah Data)
-[cite_start]Digunakan untuk menambahkan data mahasiswa baru melalui method POST. [cite: 1, 2]
-<br>
-<img src="2311102133_CRUD-MAHASISWA/assets/tambahdata.jpeg" width="800">
+Terdapat pop-up konfirmasi bawaan browser saat tombol hapus ditekan untuk mencegah penghapusan data yang tidak disengaja.
 
-### Halaman Edit (Edit Data)
-[cite_start]Digunakan untuk memperbarui data mahasiswa berdasarkan ID yang dipilih. [cite: 1, 2]
-<br>
-<img src="2311102133_CRUD-MAHASISWA/assets/editdata.jpeg" width="800">
 
-<br>
+<img src="2311102133_CRUD-MAHASISWA/assets/hapusdata.jpeg" alt="Pop Up Hapus" width="800">
 
-## 4. Kode Program
+Halaman Form (Tambah Data)
+Halaman ini digunakan untuk menambahkan data mahasiswa baru. User dapat mengisi form berupa NIM, Nama Lengkap, dan memilih Jenis Kelamin.
 
-### A. server.js (Backend)
 
-```javascript
+<img src="2311102133_CRUD-MAHASISWA/assets/tambahdata.jpeg" alt="Halaman Tambah Data" width="800">
+
+Halaman Edit (Edit Data)
+Halaman ini digunakan untuk mengubah data mahasiswa yang sudah ada. Data lama akan ditarik dari server dan ditampilkan secara otomatis pada form berdasarkan ID.
+
+
+<img src="2311102133_CRUD-MAHASISWA/assets/editdata.jpeg" alt="Halaman Edit Data" width="800">
+
+4. Kode Program
+A. server.js (Backend)
+JavaScript
 const http = require('http');
 const fs = require('fs');
 const url = require('url');
@@ -190,14 +178,11 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(3000, () => console.log('Server MONEV jalan di http://localhost:3000'));
-```
+Penjelasan server.js:
+Program di atas merupakan aplikasi backend murni menggunakan Node.js yang berjalan pada port 3000. Aplikasi ini berfungsi sebagai server untuk mengelola data mahasiswa yang disimpan sementara dalam variabel array. Modul bawaan http dan fs digunakan untuk memproses request dan menampilkan file frontend.
 
-**Penjelasan `server.js`:**
-Aplikasi backend menggunakan Pure Node.js murni untuk mengelola data mahasiswa dalam bentuk array di memori. [cite_start]Modul bawaan `http` digunakan untuk membuat server, `fs` untuk membaca file HTML, dan `querystring` untuk mengambil data dari form input. [cite: 1, 2]
-
-### B. /views/index.html (Tabel Data)
-
-```html
+B. /views/index.html
+HTML
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -210,8 +195,6 @@ Aplikasi backend menggunakan Pure Node.js murni untuk mengelola data mahasiswa d
         <div class="card shadow-sm">
             <div class="card-body">
                 <h3 class="mb-4 text-center">Data Mahasiswa (Tugas CRUD MONEV)</h3>
-                <a href="/tambah" class="btn btn-primary mb-4">+ Input Mahasiswa Baru</a>
-                
                 <table id="tabelMhs" class="table table-hover table-bordered" style="width:100%">
                     <thead class="table-dark">
                         <tr>
@@ -226,111 +209,18 @@ Aplikasi backend menggunakan Pure Node.js murni untuk mengelola data mahasiswa d
             </div>
         </div>
     </div>
-
     <script src="[https://code.jquery.com/jquery-3.7.0.min.js](https://code.jquery.com/jquery-3.7.0.min.js)"></script>
     <script src="[https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js](https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js)"></script>
     <script src="[https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js](https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js)"></script>
-    <script>
-        $(document).ready(function() {
-            $('#tabelMhs').DataTable({
-                ajax: { url: '/api/mahasiswa', dataSrc: '' },
-                columns: [
-                    { data: 'nim' }, { data: 'nama' }, { data: 'gender' },
-                    { data: null, className: "text-center", render: function(data, type, row) {
-                            return `<a href="/edit/${row.id}" class="btn btn-warning btn-sm">Edit</a>
-                                    <a href="/hapus/${row.id}" class="btn btn-danger btn-sm" onclick="return confirm('Serius nih mau dihapus datanya?')">Hapus</a>`;
-                        }
-                    }
-                ]
-            });
-        });
-    </script>
 </body>
 </html>
-```
+Penjelasan /views/index.html:
+Halaman utama yang menampilkan data dalam bentuk tabel interaktif menggunakan plugin jQuery DataTables. Data diambil dari API /api/mahasiswa dalam format JSON.
 
-**Penjelasan `/views/index.html`:**
-Halaman utama yang menampilkan data dalam tabel interaktif menggunakan jQuery DataTables. [cite_start]Data diambil secara asynchronous lewat AJAX menuju endpoint `/api/mahasiswa` dalam format JSON. [cite: 1, 2]
+5. Kesimpulan
+Aplikasi web CRUD Mahasiswa telah berhasil dibangun dengan memanfaatkan pendekatan Pure Node.js. Data dirender dalam format JSON menggunakan plugin jQuery DataTables dan tampilan antarmuka web dibangun menggunakan framework Bootstrap 5, memenuhi seluruh kriteria spesifikasi teknis untuk tugas MONEV 1.
 
-### C. /views/tambah.html (Tambah Data)
+6. Link Lampiran
+Video Presentasi MONEV 1: [Masukkan Link GDrive Video Di Sini]
 
-```html
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <title>Tambah Mahasiswa</title>
-    <link href="[https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css](https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css)" rel="stylesheet">
-</head>
-<body class="bg-light">
-    <div class="container mt-5">
-        <div class="card shadow-sm" style="max-width: 600px; margin: auto;">
-            <div class="card-header bg-primary text-white"><h5 class="mb-0">Form Tambah Data</h5></div>
-            <div class="card-body">
-                <form action="/tambah" method="POST">
-                    <div class="mb-3">
-                        <label class="form-label">Nomor Induk Mahasiswa (NIM)</label>
-                        <input type="number" name="nim" class="form-control" required>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Nama Lengkap</label>
-                        <input type="text" name="nama" class="form-control" required>
-                    </div>
-                    <div class="mb-4">
-                        <label class="form-label">Jenis Kelamin</label>
-                        <select name="gender" class="form-select" required>
-                            <option value="" disabled selected>Pilih Gender...</option>
-                            <option value="Laki-laki">Laki-laki</option>
-                            <option value="Perempuan">Perempuan</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn btn-success">Simpan Data</button>
-                    <a href="/" class="btn btn-outline-secondary float-end">Kembali</a>
-                </form>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
-```
-
-**Penjelasan `/views/tambah.html`:**
-[cite_start]Halaman form untuk menambah data mahasiswa baru menggunakan method POST. [cite: 1, 2]
-
-### D. /views/edit.html (Update Data)
-
-```html
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <title>Edit Mahasiswa</title>
-    <link href="[https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css](https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css)" rel="stylesheet">
-</head>
-<body class="bg-light">
-    <div class="container mt-5">
-        <div class="card shadow-sm" style="max-width: 600px; margin: auto;">
-            <div class="card-header bg-warning"><h5 class="mb-0">Form Edit Data</h5></div>
-            <div class="card-body">
-                <form action="/edit/{{id}}" method="POST">
-                    <div class="mb-3">
-                        <label class="form-label">Nomor Induk Mahasiswa (NIM)</label>
-                        <input type="number" name="nim" class="form-control" value="{{nim}}" required>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Nama Lengkap</label>
-                        <input type="text" name="nama" class="form-control" value="{{nama}}" required>
-                    </div>
-                    <div class="mb-4">
-                        <label class="form-label">Jenis Kelamin</label>
-                        <select name="gender" class="form-select" required>
-                            <option value="Laki-laki" {{select_L}}>Laki-laki</option>
-                            <option value="Perempuan" {{select_P}}>Perempuan</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn btn-success">Update Data</button>
-                    <a href="/" class="btn btn-outline-secondary float-end">Batal</a>
-                </form>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
+Slide Presentasi (PPT): [Masukkan Link GDrive PPT Di Sini]
